@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>蒸汽机车 3D 展厅</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Import Map：three 主包 + 官方 addons（OrbitControls / GLTFLoader / Reflector 等） -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- 3D 画布挂载点 -->
+  <div id="app"></div>
+
+  <!-- 加载遮罩：进度条 + 失败提示 -->
+  <div id="loading-overlay">
+    <div class="loading-box">
+      <div class="loading-title">蒸汽机车 3D 展厅</div>
+      <div class="progress-track"><div id="progress-bar"></div></div>
+      <div id="progress-text">正在加载模型…</div>
+      <div id="load-error" hidden>
+        <p class="error-title">⚠ 模型加载失败</p>
+        <p id="load-error-msg"></p>
+        <p class="error-tip">可能原因：网络异常 / 模型地址失效 / 跨域限制<br />详见 README「常见问题排查」</p>
+        <button id="btn-retry" class="btn btn-primary">重新加载</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 悬浮侧边控制面板（内容由 js/ui/panel.js 生成） -->
+  <div id="panel"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
